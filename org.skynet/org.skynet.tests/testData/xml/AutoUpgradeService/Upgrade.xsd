@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="AutoUpgrade">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name = "Upgrade" type = "Upgrade" minOccurs ="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+<xs:complexType name="Upgrade">
+		<xs:sequence>
+			<xs:element name = "upgradeService" type="ServiceUpgrade" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ServiceUpgrade">
+	<xs:sequence>
+		<xs:element name = "ServiceType" type ="xs:string" minOccurs = "1" maxOccurs = "1"/>
+		<xs:element name = "ServiceName" type = "xs:string" minOccurs = "1" maxOccurs="1" />
+		<xs:element name = "ClassUpgrade" type = "ClassUpgrade" minOccurs="1" maxOccurs="unbounded"/>
+	</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClassUpgrade">
+	<xs:sequence>
+		<xs:element name = "ClassName" type="xs:string" minOccurs ="1" maxOccurs="1"/>
+		<xs:element name = "ClassData" type="xs:base64Binary" minOccurs ="1" maxOccurs="1"/>
+	</xs:sequence>
+</xs:complexType>
+</xs:schema>
