@@ -44,7 +44,6 @@ public class RpcProcess implements Runnable {
 				request.process(reader);
 //			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
